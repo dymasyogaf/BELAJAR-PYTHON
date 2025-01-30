@@ -26,5 +26,5 @@ print(value_dict)
 
 # Fitur .update()
 print(">>> Fitur .update()")
-info_karyawan.update({'skillset':['Python', 'R']})
+info_karyawan.update([('skillset', ['Python', 'R'])])
 print(info_karyawan)
