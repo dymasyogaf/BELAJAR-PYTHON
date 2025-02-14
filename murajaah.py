@@ -1,62 +1,35 @@
-import streamlit as st
-import pandas as pd
+import matplotlib.pyplot as plt
 import numpy as np
 
-# Tittle of the dashboard
-st.title("My Dashboard")
+def plot_dashboard():
+    # Data for bar chart
+    years = ["2023", "2024", "2025"]
+    revenue = [3, 8, 15]
+    profit = [2, 6, 12]
+    x = np.arange(len(years))
 
-# Sidebar for user input
-st.sidebar.header("User Input")
+    # Create figure and subplots
+    fig, axes = plt.subplots(1, 2, figsize=(12, 6))
+    fig.suptitle("Opportunities in the Data Economy", fontsize=16, fontweight='bold', color='blue')
+    
+    # Bar chart
+    axes[0].bar(x - 0.2, revenue, 0.4, label="Revenue", color='royalblue')
+    axes[0].bar(x + 0.2, profit, 0.4, label="Profit", color='navy')
+    axes[0].set_xticks(x)
+    axes[0].set_xticklabels(years)
+    axes[0].set_ylabel("Value")
+    axes[0].set_title("Revenue vs Profit Over Years")
+    axes[0].legend()
+    
+    # Pie chart
+    labels = ["Data-Driven Decision Making", "Market Expansion", "New Revenue Streams", "Operational Efficiency"]
+    sizes = [25, 25, 25, 25]
+    colors = ["royalblue", "navy", "lightblue", "steelblue"]
+    
+    axes[1].pie(sizes, labels=labels, autopct='%1.0f%%', colors=colors, startangle=140)
+    axes[1].set_title("Key Opportunities")
+    
+    plt.tight_layout()
+    plt.show()
 
-# Example of a text input widget
-user_input = st.sidebar.text_input("Enter some text", "Hello, streamlit!")
-
-# Example of a slider widget
-slider_value = st.sidebar.slider("Select a value", 0, 100, 50)
-
-# Example of a checkbox widget
-if st.sidebar.checkbox("Show DataFrame"):
-    # Example DataFrame
-    df = pd.DataFrame({
-        'Column 1': np.random.randn(10),
-        'Column 2': np.random.randn(10)
-    })
-    st.write(df)
-
-# Main content
-st.header("Main Content")
-
-# Display user input from sidebar
-st.write("You entered: ", user_input)
-st.write("Slide value: ", slider_value)
-
-# Example of a line chart
-chart_data = pd.DataFrame(
-    np.random.randn(20, 3),
-    columns=['A', 'B', 'C']
-)
-st.line_chart(chart_data)
-
-# Example of an interactive map
-map_data = pd.DataFrame(
-    np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
-    columns=['lat', 'lon']
-)
-st.map(map_data)
-
-# Example of a button
-if st.button("Click Me"):
-    st.write("Button clicked!")
-
-# Example of a file uploader
-uploaded_file = st.file_uploader("Choose a file")
-if uploaded_file is not None:
-    data = pd.read_csv(uploaded_file)
-    st.write(data)
-
-# Example of a selectbox
-option = st.selectbox(
-    'which option do you prefer?',
-    ['Option 1', 'Option 2', 'Option 3']
-)
-st.write('You selected:', option)
+plot_dashboard()
