@@ -8,3 +8,10 @@ while i < jumlah_tagihan:
     total_tagihan += tagihan[i]
     i += 1
 print(total_tagihan)
+
+# Cara ke dua
+
+tagihan = [50000, 75000, 125000, 300000, 200000]
+total_tagihan = sum(tagihan)
+print("Total tagihan:", total_tagihan)
+
