@@ -1,0 +1,45 @@
+## Belajar Pandas
+
+## Tahap 1 Dasar pengenalan ##
+# Tujuan: memahadi struktur data utama di pandas
+# Cara instal Pandas -> pip install pandas
+# cara import nya -> import pandas as pd
+# Inti materi pahami -> Series dan DataFrame
+# DataFrame -> Dictionary
+# Contoh = df.head(), df.tail(), df.shape(), df.info(), df.describe()
+
+## Tahap 2 Membaca dan Menulis Data ##
+# tujuan: Bisa ambil data dari file dan disimpan kembali
+# Baca file CSV -> pd.read.csv('nama_file.csv')
+# Baca file excel -> pd.read.excel('Nama_file.xlsx')
+# Simpan DataFrame ke CSV -> df.to_csv('Nama_file.csv', index=false)
+
+
+## Tahap 3 Pembersihan Data (Data Cleaning)
+# Tujuan: Bisa membersihkan data yg kotor
+# Cek data null -> df.isnull().sum()
+# Hapus Baris null -> df.dropna()
+# isi data null -> df.fillna(0)
+# Ganti nilai -> df.replace('lama', 'baru')
+# ubah tipe data -> df['kolom'].astype(int)
+
+## Tahap 4 Memanipulasi dan Seleksi data
+# Tujuan: bisa mengolah dan mengambil data sesuai kebutuhan
+# Seleksi kolom -> df['nama_kolom']
+# Filter baris -> df[df['umur']> 25]
+# sorting -> df.sort_values('umur', ascending = False)
+# Grouping -> df.groupby('kota')['pendapatan'].mean()
+# Menambahkan kolom baru: df['penghasilan_bersih'] = df['gaji'] - df['utang']
+
+## Tahap 5 Analisis Data sederhana
+# Tujuan: bisa mulai menganalisis data
+# Hitung nilai rata-rata, median, dan modus
+# Analisis korelasi -> df.corr(
+# Gunakan value_counts() untuk melihat jumlah kategori
+# Gunakan pivot_table() untuk tabulasi silang data
+
+## Tahap 6 Visualisasi awal
+# Tujuan: Melihat data secara visual
+# Gabungkan dengan matplotlib atau seaborn
+# Buat plot -> df['umur'].plot(kind='hist')
+# Cek distribusi dan outlier
