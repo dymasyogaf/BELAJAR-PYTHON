@@ -5,7 +5,7 @@
 # bagaimana preferensi genre berubah dari tahun ke tahun.
 # 📝 Pertanyaan yang Harus Kamu Jawab:
 # Berapa jumlah total film dalam dataset?
-# Genre apa yang paling banyak muncul?
+# Movie apa yang paling banyak muncul?
 # Film dengan rating tertinggi dalam dataset ini?
 # Film dengan durasi terpanjang?
 # Berapa rata-rata rating film per dekade?
@@ -18,8 +18,16 @@ import pandas as pd
 file_path = "c:/Users/ThinkPad/Belajar Python/Library/oscar_age_male.csv"
 df = pd.read_csv(file_path)
 
+# Bersihkan nama kolom
+df.columns = df.columns.str.strip().str.replace('"', '')
+
 print(df.head())
+
 # 1
 total_film = len(df)
 print("1. Total film dalam dataset:", total_film)
 
+# 2
+movie_terbanyak = df['Movie'].value_counts()
+print("2. Movie yang paling banyak muncul:")
+print(movie_terbanyak.head(1))
